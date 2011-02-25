@@ -144,7 +144,7 @@ class SSHFSMount(Mount):
         except OSError:
             pass
         
-        self.proc = subprocess.Popen(['/Users/amcharg/.local/bin/sshfs', '-f', self.server + ':' + self.path, self.mount_point, '-oauto_cache,reconnect'])
+        self.proc = subprocess.Popen(['sshfs', '-f', self.server + ':' + self.path, self.mount_point, '-oauto_cache,reconnect'])
         print 'Starting sshfs with pid: %d' % self.proc.pid
 
     def stop(self):
